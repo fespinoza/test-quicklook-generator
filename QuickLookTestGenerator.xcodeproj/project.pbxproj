@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B8888F91E5CB4FC001253CB /* GenerateThumbnailForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = 9B8888F81E5CB4FC001253CB /* GenerateThumbnailForURL.c */; };
-		9B8888FB1E5CB4FC001253CB /* GeneratePreviewForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = 9B8888FA1E5CB4FC001253CB /* GeneratePreviewForURL.c */; };
+		9B39E00F1E610E75002D6110 /* HelloWold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B39E00E1E610E75002D6110 /* HelloWold.swift */; };
+		9B8888F91E5CB4FC001253CB /* GenerateThumbnailForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B8888F81E5CB4FC001253CB /* GenerateThumbnailForURL.m */; };
+		9B8888FB1E5CB4FC001253CB /* GeneratePreviewForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B8888FA1E5CB4FC001253CB /* GeneratePreviewForURL.m */; };
 		9B8888FD1E5CB4FC001253CB /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9B8888FC1E5CB4FC001253CB /* main.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B39E00E1E610E75002D6110 /* HelloWold.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloWold.swift; sourceTree = "<group>"; };
 		9B8888F51E5CB4FC001253CB /* QuickLookTestGenerator.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickLookTestGenerator.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B8888F81E5CB4FC001253CB /* GenerateThumbnailForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GenerateThumbnailForURL.c; sourceTree = "<group>"; };
-		9B8888FA1E5CB4FC001253CB /* GeneratePreviewForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GeneratePreviewForURL.c; sourceTree = "<group>"; };
+		9B8888F81E5CB4FC001253CB /* GenerateThumbnailForURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GenerateThumbnailForURL.m; sourceTree = "<group>"; };
+		9B8888FA1E5CB4FC001253CB /* GeneratePreviewForURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeneratePreviewForURL.m; sourceTree = "<group>"; };
 		9B8888FC1E5CB4FC001253CB /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		9B8888FE1E5CB4FC001253CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,10 +52,11 @@
 		9B8888F71E5CB4FC001253CB /* QuickLookTestGenerator */ = {
 			isa = PBXGroup;
 			children = (
-				9B8888F81E5CB4FC001253CB /* GenerateThumbnailForURL.c */,
-				9B8888FA1E5CB4FC001253CB /* GeneratePreviewForURL.c */,
+				9B8888F81E5CB4FC001253CB /* GenerateThumbnailForURL.m */,
+				9B8888FA1E5CB4FC001253CB /* GeneratePreviewForURL.m */,
 				9B8888FC1E5CB4FC001253CB /* main.c */,
 				9B8888FE1E5CB4FC001253CB /* Info.plist */,
+				9B39E00E1E610E75002D6110 /* HelloWold.swift */,
 			);
 			path = QuickLookTestGenerator;
 			sourceTree = "<group>";
@@ -101,6 +104,7 @@
 					9B8888F41E5CB4FC001253CB = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 2Z7R9FQBNN;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -137,8 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B8888F91E5CB4FC001253CB /* GenerateThumbnailForURL.c in Sources */,
-				9B8888FB1E5CB4FC001253CB /* GeneratePreviewForURL.c in Sources */,
+				9B39E00F1E610E75002D6110 /* HelloWold.swift in Sources */,
+				9B8888F91E5CB4FC001253CB /* GenerateThumbnailForURL.m in Sources */,
+				9B8888FB1E5CB4FC001253CB /* GeneratePreviewForURL.m in Sources */,
 				9B8888FD1E5CB4FC001253CB /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,12 +241,18 @@
 		9B8889021E5CB4FC001253CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 2Z7R9FQBNN;
 				INFOPLIST_FILE = QuickLookTestGenerator/Info.plist;
 				INSTALL_PATH = /Library/QuickLook;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fespinozacast.QuickLookTestGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = qlgenerator;
 			};
 			name = Debug;
@@ -249,12 +260,17 @@
 		9B8889031E5CB4FC001253CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 2Z7R9FQBNN;
 				INFOPLIST_FILE = QuickLookTestGenerator/Info.plist;
 				INSTALL_PATH = /Library/QuickLook;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fespinozacast.QuickLookTestGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = qlgenerator;
 			};
 			name = Release;
@@ -278,6 +294,7 @@
 				9B8889031E5CB4FC001253CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
