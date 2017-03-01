@@ -18,20 +18,23 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
   @autoreleasepool {
     NSSize canvasSize = NSMakeSize(600, 300);
 
-
-//    Document *document = [[Document alloc] init];
-
-    NSLog(@"Quicklook Init! %@", url);
+    NSLog(@"Quicklook Init! %@, contentType %@", url, contentTypeUTI);
 
     HelloWorld *sample = [[HelloWorld alloc] init];
 
     NSLog(@"Quicklook: %@", [sample sayHello]);
 
-//    if(![document readFromURL:(__bridge NSURL *)url ofType:(__bridge NSString *)contentTypeUTI]) {
-//      return noErr;
-//    }
+    [NSKeyedUnarchiver setClass:[DocumentData class] forClassName:@"LinkedIdeas.DocumentData"];
+    [NSKeyedUnarchiver setClass:[Concept class] forClassName:@"LinkedIdeas.Concept"];
+    [NSKeyedUnarchiver setClass:[Link class] forClassName:@"LinkedIdeas.Link"];
 
-//    NSLog(@"Quick look generator DOCUMENT %@", document);
+    DocumentManager *manager = [[DocumentManager alloc] init];
+
+    manager.url = (__bridge NSURL *)url;
+    manager.contentTypeUTI = (__bridge NSString *)contentTypeUTI;
+
+
+
 
     // Preview will be drawn in a vectorized context
     CGContextRef cgContext = QLPreviewRequestCreateContext(preview, *(CGSize *)&canvasSize, false, NULL);
@@ -50,17 +53,20 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
 
         // This is where you draw anything
 
-        // - open document
-        // - read information
-        // - generate view moodels
-        // - create view and connect data
-        // - render
+        // - [x] open document
+        // - [x] read information
+        // - [ ] generate view moodels
+        // - [ ] create view and connect data
+        // - [ ] render
 
-        [[NSColor redColor] set];
-        NSRectFill(NSMakeRect(0, 0, 600, 300));
-
-        [[NSColor blueColor] set];
-        NSRectFill(NSMakeRect(100, 100, 100, 100));
+        [manager processDocumentWithCanvasSize:canvasSize context:context];
+        
+//
+//        [[NSColor redColor] set];
+//        NSRectFill(NSMakeRect(0, 0, 600, 300));
+//
+//        [[NSColor blueColor] set];
+//        NSRectFill(NSMakeRect(100, 100, 100, 100));
 
         [NSGraphicsContext restoreGraphicsState];
 

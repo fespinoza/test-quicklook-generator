@@ -12,7 +12,7 @@ public class HelloWorld: NSObject {
   let person: String = "Felipe"
 
   public func sayHello() -> String {
-    Swift.print("\(person): hello world!")
+    Swift.print("print \(person): hello world!")
     return "\(person): hello world!"
   }
 }
